@@ -6,28 +6,15 @@ class App extends Component {
  
   render() {
     return (
-      <View style={styles.area}>
-        <Text style={[styles.texto1, styles.alinhaTexto]}>Text1</Text>
-        <Text>Text1</Text>
-        <Text>Text1</Text>
-        <Text style={styles.texto1}>Text1</Text>
+      <View style={{backgroundColor: '#333', flex:1}}>
+        <View style={{height: 27, backgroundColor:'red'}}></View>
+        <View style={{flex: 1, backgroundColor:'green'}}></View>
+        <View style={{height: 27, backgroundColor:'red'}}></View>
+        
       </View>
     
     )
   }
 }
-
-const styles = StyleSheet.create({
-  area: {
-    marginTop: 40,
-  },
-  texto1: {
-    fontSize: 25,
-    color: 'red',
-  },
-  alinhaTexto: {
-    textAlign: 'center'
-  }
-})
 
 export default App;
