@@ -48,7 +48,14 @@ class App extends React.Component {
   }
 
   handleStop() {
-    alert('stop ')
+    if(this.timer != null) {
+      clearInterval(this.chronoNum)
+      this.chronoNum = null
+    }
+    this.setState({
+      timer: 0,
+      btn: 'Start'
+    })
   }
   
   render() {
