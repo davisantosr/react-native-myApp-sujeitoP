@@ -23,11 +23,16 @@ class App extends React.Component {
   }
 
   handleStart() {
-    this.chronoNum = setInterval(() => {
-      this.setState({
-        timer: this.state.timer + 0.1
-      }, 100)
-    })
+    if(this.chronoNum !== null){
+      clearInterval(this.chronoNum)
+      this.timer = null
+    } else {
+      this.chronoNum = setInterval(() => {
+        this.setState({
+          timer: this.state.timer + 0.1
+        }, 100)
+      })
+    }    
   }
 
   handleStop() {
