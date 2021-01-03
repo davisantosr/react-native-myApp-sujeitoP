@@ -16,7 +16,8 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <ScrollView
-          scrollEnabled={false}
+        horizontal
+        showsHorizontalScrollIndicator={false}
         >
           <View style={styles.box1}></View>
           <View style={styles.box2}></View>
@@ -35,18 +36,25 @@ const styles = StyleSheet.create({
   box1: {
     backgroundColor: 'red',
     height: 250,
+    width: 150,
   },
   box2: {
     backgroundColor: 'green',
     height: 250,
+    width: 150,
+
   },
   box3: {
     backgroundColor: 'yellow',
     height: 250,
+    width: 150,
+
   },
   box4: {
     backgroundColor: 'blue',
     height: 250,
+    width: 150,
+
   }
 })
 
