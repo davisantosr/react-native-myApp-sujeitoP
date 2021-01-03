@@ -38,8 +38,8 @@ export class App extends Component {
           {pizzasItem}
         </Picker>
 
-        <Text style={styles.pizzas}>Your choice: Cheese</Text>
-        <Text style={styles.pizzas}>$ 30.00</Text>
+        <Text style={styles.pizzas}>Your choice: {this.state.pizzas[this.state.pizza].nome}</Text>
+        <Text style={styles.pizzas}>$ {this.state.pizzas[this.state.pizza].price.toFixed(2)}</Text>
       </View>
     )
   }
