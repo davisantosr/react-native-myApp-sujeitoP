@@ -7,12 +7,24 @@ import {
 import {Picker} from '@react-native-picker/picker'
 
 export class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      pizzas: 0
+    }
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>Pizzas Menu</Text>
 
-        <Picker>
+        <Picker
+          selectedValue={this.state.pizzas}
+          onValueChange={(item, indx) => this.setState({pizzas: item})}
+        >
           <Picker.Item
             key={1}
             value={1}
