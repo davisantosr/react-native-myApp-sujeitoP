@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 import { 
   View, 
-  Text, 
   StyleSheet, 
-  TextInput,
-  ScrollView
+  FlatList
+
 } from 'react-native';
 
 class App extends Component {
@@ -15,15 +14,10 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        >
-          <View style={styles.box1}></View>
-          <View style={styles.box2}></View>
-          <View style={styles.box3}></View>
-          <View style={styles.box4}></View>
-        </ScrollView>
+        <FlatList 
+          data={}
+          renderItem={}
+        />
       </View>     
     )
   }
@@ -32,30 +26,8 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  box1: {
-    backgroundColor: 'red',
-    height: 250,
-    width: 150,
-  },
-  box2: {
-    backgroundColor: 'green',
-    height: 250,
-    width: 150,
 
   },
-  box3: {
-    backgroundColor: 'yellow',
-    height: 250,
-    width: 150,
-
-  },
-  box4: {
-    backgroundColor: 'blue',
-    height: 250,
-    width: 150,
-
-  }
 })
 
 export default App;
