@@ -8,22 +8,48 @@ import {
 } from 'react-native'
 
 class App extends React.Component {
-  
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      textQuote: '',
+      img: require('./src/cake.png'),
+    }
+
+    this.openCake = this.openCake.bind(this)
+
+    this.quotes = [ 
+      'You will have a better fortune in the next cookie',
+      'Friends are chocolate chips in the cookie of life!',
+      'Pros and cons for making food: Pro: Food. Con: Making'
+    ]
+  }  
+ 
+  openCake() {
+    let ramdomNum = Math.floor(Math.random() * this.quotes.length);
+
+    this.setState({
+      textQuote: '"'+ this.quotes[ramdomNum] + '"',
+      img: require('./src/cakeopn.png')
+    })
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <Image
           style={styles.img}
-          source={require('./src/cake.png')}
+          source={this.state.img}
         />
 
         <Text style={styles.textAbout}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Corporis obcaecati id consequuntur!
+          {this.state.textQuote}
         </Text>
 
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity 
+          style={styles.btn}
+          onPress={this.openCake}  
+        >
           <View style={styles.btnArea}>
             <Text style={styles.btnText}>Open</Text>
           </View>
