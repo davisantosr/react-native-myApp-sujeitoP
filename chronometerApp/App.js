@@ -8,6 +8,16 @@ import {
 } from 'react-native'
 
 class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      timer: 0
+    }
+  }
+
+  
   render() {
     return (
       <View style={styles.container}>
@@ -16,7 +26,7 @@ class App extends React.Component {
           style={styles.imgChrono}
         />
 
-        <Text style={styles.timer}>0.0</Text>
+        <Text style={styles.timer}>{this.state.timer.toFixed(1)}</Text>
 
 
         <View style={styles.btnsArea}>
