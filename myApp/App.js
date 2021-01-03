@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  TextInput,
+  ScrollView
+} from 'react-native';
 
 class App extends Component {
 
@@ -9,10 +15,12 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.box1}></View>
-        <View style={styles.box2}></View>
-        <View style={styles.box3}></View>
-        <View style={styles.box4}></View>
+        <ScrollView>
+          <View style={styles.box1}></View>
+          <View style={styles.box2}></View>
+          <View style={styles.box3}></View>
+          <View style={styles.box4}></View>
+        </ScrollView>
       </View>     
     )
   }
