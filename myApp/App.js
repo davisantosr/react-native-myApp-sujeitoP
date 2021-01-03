@@ -11,35 +11,31 @@ export class App extends Component {
     super(props)
 
     this.state = {
-      pizzas: 0
+      pizza: 0,
+      pizzas: [
+        {key: 1, nome: 'chesse', price: 30.00},
+        {key: 2, nome: 'chocolate', price: 25.00},
+        {key: 3, nome: 'chicken', price: 15.00},
+        {key: 4, nome: 'beef', price: 50.00},
+      ]
     }
   }
 
 
   render() {
+
+    let pizzasItem = this.state.pizzas.map((value, idx) => {
+      return  <Picker.Item value={idx} key={idx} label={value.nome}  />
+    })
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>Pizzas Menu</Text>
 
         <Picker
-          selectedValue={this.state.pizzas}
-          onValueChange={(item, indx) => this.setState({pizzas: item})}
+          selectedValue={this.state.pizza}
+          onValueChange={(item, indx) => this.setState({pizza: item})}
         >
-          <Picker.Item
-            key={1}
-            value={1}
-            label={'Chesse'}
-          />
-          <Picker.Item
-            key={2}
-            value={2}
-            label={'Chocolate'}
-          />
-          <Picker.Item
-            key={3}
-            value={3}
-            label={'Chicken'}
-          />
+          {pizzasItem}
         </Picker>
 
         <Text style={styles.pizzas}>Your choice: Cheese</Text>
