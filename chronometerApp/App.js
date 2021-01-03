@@ -14,7 +14,8 @@ class App extends React.Component {
 
     this.state = {
       timer: 0,
-      btn: 'Start'
+      btn: 'Start',
+      hist: null
     }
 
     //timer variable
@@ -53,6 +54,7 @@ class App extends React.Component {
       this.chronoNum = null
     }
     this.setState({
+      hist: this.state.timer.toFixed(1),
       timer: 0,
       btn: 'Start'
     })
@@ -85,7 +87,8 @@ class App extends React.Component {
           </TouchableOpacity>
         </View>
 
-
+        <Text style={styles.hist}>{this.state.hist}</Text>
+        
 
       </View>
     )
@@ -125,7 +128,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#00aeef'
 
+  },
+  hist: {
+    fontSize: 30, 
+    color: '#fff',
+    marginTop: 40
   }
+
 })
 
 export default App
