@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      timer: 0
+      timer: 0,
+      btn: 'Start'
     }
 
     //timer variable
@@ -23,14 +24,25 @@ class App extends React.Component {
   }
 
   handleStart() {
-    if(this.chronoNum !== null){
+    //stops the timer
+    if(this.chronoNum != null){
       clearInterval(this.chronoNum)
-      this.timer = null
+      this.chronoNum = null
+
+      this.setState({
+        btn: 'Start'
+      })
+    
+
     } else {
       this.chronoNum = setInterval(() => {
         this.setState({
           timer: this.state.timer + 0.1
-        }, 100)
+        })
+      }, 100)
+
+      this.setState({
+        btn: 'Pause'
       })
     }    
   }
@@ -55,7 +67,7 @@ class App extends React.Component {
             onPress={this.handleStart}
             style={styles.btn}
           >
-              <Text style={styles.btnText}>Go</Text>            
+              <Text style={styles.btnText}>{this.state.btn}</Text>            
           </TouchableOpacity>
           
           <TouchableOpacity 
