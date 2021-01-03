@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <ScrollView
-          showsVerticalScrollIndicator={false}
+          scrollEnabled={false}
         >
           <View style={styles.box1}></View>
           <View style={styles.box2}></View>
