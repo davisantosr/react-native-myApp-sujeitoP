@@ -3,32 +3,16 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      nome: ''
-    }
 
-    this.peganome = this.peganome.bind(this)
-  }
+  
 
-  peganome(text) {
-    this.setState({
-      nome: text
-    })
-    
-  }
- 
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          placeholder='Digite seu nome'
-          onChangeText={this.peganome}
-        />
-        <Text style={styles.text}>{this.state.nome}</Text>
-
+        <View style={styles.box1}></View>
+        <View style={styles.box2}></View>
+        <View style={styles.box3}></View>
+        <View style={styles.box4}></View>
       </View>     
     )
   }
@@ -38,16 +22,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  input: {
-    height: 45,
-    borderWidth: 1,
-    borderColor: '#222',
-    margin: 10
-  }, 
-  text: {
-    textAlign: 'center',
-    fontSize: 25
-
+  box1: {
+    backgroundColor: 'red',
+    height: 250,
+  },
+  box2: {
+    backgroundColor: 'green',
+    height: 250,
+  },
+  box3: {
+    backgroundColor: 'yellow',
+    height: 250,
+  },
+  box4: {
+    backgroundColor: 'blue',
+    height: 250,
   }
 })
 
