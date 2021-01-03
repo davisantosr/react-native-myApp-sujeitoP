@@ -1,37 +1,38 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
 import { 
-  View, 
-  StyleSheet, 
-  FlatList,
-  Text
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native'
+import {Picker} from '@react-native-picker/picker'
 
-} from 'react-native';
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      feed: [
-        {id: 1, nome:'Davi', idade: 100, email: 'email.com'},
-        {id: 2,nome:'Joao', idade: 200, email: 'email.com'},
-        {id: 3,nome:'Jose', idade: 400, email: 'email.com'},
-        {id: 4,nome:'Salomao', idade: 500, email: 'email.com'},
-      ]
-    }
-  }
-
-  
-
+export class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList 
-          data={this.state.feed}
-          keyExtractor={(item) => item.id}
-          renderItem={({item}) => <Pessoa data={item} />}
-        />
-      </View>     
+        <Text style={styles.logo}>Pizzas Menu</Text>
+
+        <Picker>
+          <Picker.Item
+            key={1}
+            value={1}
+            label={'Chesse'}
+          />
+          <Picker.Item
+            key={2}
+            value={2}
+            label={'Chocolate'}
+          />
+          <Picker.Item
+            key={3}
+            value={3}
+            label={'Chicken'}
+          />
+        </Picker>
+
+        <Text style={styles.pizzas}>Your choice: Cheese</Text>
+        <Text style={styles.pizzas}>$ 30.00</Text>
+      </View>
     )
   }
 }
@@ -39,29 +40,19 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    marginTop: 20 
   },
+  logo: {
+    textAlign: 'center',
+    fontSize: 28,
+    fontWeight: 'bold'
+  },
+  pizzas: {
+    marginTop: 15, 
+    fontSize: 23,
+    textAlign: 'center'
+  }
+
 })
 
-export default App;
-
-
-class Pessoa extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text style={styles2.textPessoa}>{this.props.data.nome}</Text>
-        <Text style={styles2.textPessoa}>{this.props.data.idade}</Text>
-        <Text style={styles2.textPessoa}>{this.props.data.email}</Text>
-      </View>
-    )
-  }
-}
-
-const styles2 = StyleSheet.create({
-  textPessoa: {
-    backgroundColor: '#222',
-    height: 200,
-    marginBottom: 15
-  }
-})
+export default App
