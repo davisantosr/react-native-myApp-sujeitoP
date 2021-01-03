@@ -15,8 +15,24 @@ class App extends React.Component {
     this.state = {
       timer: 0
     }
+
+    //timer variable
+    this.chronoNum = null
+    this.handleStart = this.handleStart.bind(this)
+    this.handleStop = this.handleStop.bind(this)
   }
 
+  handleStart() {
+    this.chronoNum = setInterval(() => {
+      this.setState({
+        timer: this.state.timer + 0.1
+      }, 100)
+    })
+  }
+
+  handleStop() {
+    alert('stop ')
+  }
   
   render() {
     return (
@@ -30,12 +46,18 @@ class App extends React.Component {
 
 
         <View style={styles.btnsArea}>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>Go</Text>            
+          <TouchableOpacity 
+            onPress={this.handleStart}
+            style={styles.btn}
+          >
+              <Text style={styles.btnText}>Go</Text>            
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>Stop</Text>
+          <TouchableOpacity 
+            onPress={this.handleStop}
+            style={styles.btn}
+          >
+              <Text style={styles.btnText}>Stop</Text>
           </TouchableOpacity>
         </View>
 
