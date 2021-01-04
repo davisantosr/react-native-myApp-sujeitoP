@@ -12,16 +12,29 @@ class App extends React.Component {
     super()
 
     this.state = {
+      status: false
 
     }
   }
   render() {
     return (
-      <View>
-        
+      <View style={styles.container}>
+        <Switch 
+          value={this.state.status}
+          onValueChange={valueSwitch => this.setState({status: valueSwitch})}
+        />
+
+        <Text>{this.state.status ? 'True' : 'False'}</Text>
+
       </View>
     ) 
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 20
+  }
+})
 
 export default App
