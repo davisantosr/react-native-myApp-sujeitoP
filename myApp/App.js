@@ -12,7 +12,7 @@ export class App extends Component {
     super(props)
 
     this.state = {
-      value: 0
+      value: 50
     }
   }
   render() {
@@ -22,8 +22,16 @@ export class App extends Component {
         <Slider
           minimumValue={0}
           maximumValue={100}
-          onValueChange={}
+          value={50}
+          onValueChange={selected => {
+            this.setState({
+              value: selected.toFixed(0)
+            })
+          }}
+          minimumTrackTintColor='#00ff00'
+          maximumTrackTintColor='#ff0000'
         />
+        <Text>{this.state.value}</Text>
       </View>
     )
   }
