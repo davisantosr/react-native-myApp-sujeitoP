@@ -23,7 +23,14 @@ export class App extends Component {
     this.handleAddName = this.handleAddName.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await AsyncStorage.getItem('name').then(value => {
+      this.setState({
+        name: value
+      })
+    })
+
+
   }
 
   async componentDidUpdate(_, prevState){
