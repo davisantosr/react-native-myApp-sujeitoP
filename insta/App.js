@@ -64,10 +64,50 @@ export class App extends Component {
   render() {
     return (
       <View>
-        
+        <View style={styles.header}>
+          <TouchableOpacity>
+            <Image 
+              source={require('./src/img/logo.png')}
+              style={styles.logo}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image 
+              source={require('./src/img/send.png')}
+              style={styles.send}
+            />
+          </TouchableOpacity>
+
+        </View>
+                
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  header: {
+    height: 55, 
+    backgroundColor:'#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 5, 
+    borderBottomWidth: 0.1,
+    shadowColor: '#000',
+    elevation: 1,
+
+  },
+  logo: {
+
+  },
+  send: {
+    width: 23, 
+    height: 23,
+  }
+})
 
 export default App
