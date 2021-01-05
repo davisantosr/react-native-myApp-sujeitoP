@@ -1,40 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { 
   View, 
   Text, 
   StyleSheet,
-  Switch 
+  TextInput, 
+  TouchableOpacity,
+  
 } from 'react-native'
 
-
-class App extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {
-      status: false
-
-    }
-  }
+export class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Switch 
-          value={this.state.status}
-          onValueChange={valueSwitch => this.setState({status: valueSwitch})}
-        />
-
-        <Text>{this.state.status ? 'True' : 'False'}</Text>
-
+      <View>
+        <Text></Text>
       </View>
-    ) 
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20
-  }
-})
 
 export default App
