@@ -5,8 +5,12 @@ import {
   StyleSheet,
   TextInput, 
   TouchableOpacity,
+  Keyboard,
 
 } from 'react-native'
+
+import AsyncStorage from '@react-native-community/async-storage'
+
 
 export class App extends Component {
   constructor(props) {
@@ -14,9 +18,30 @@ export class App extends Component {
 
     this.state = {
       input: '', 
-      name: 'Davi', 
+      name: '', 
+    }
+    this.handleAddName = this.handleAddName.bind(this)
+  }
+
+  componentDidMount() {
+  }
+
+  async componentDidUpdate(_, prevState){
+    const {name} = this.state
+    if(prevState !== name) {
+      await AsyncStorage.setItem('name', name)
     }
   }
+
+  handleAddName() {
+    this.setState({
+      name: this.state.input
+    });
+
+    alert('Save successfully')
+    Keyboard.dismiss()
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -27,7 +52,7 @@ export class App extends Component {
             onChangeText={text => this.setState({input: text})}
             underlineColorAndroid='transparent'
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.handleAddName}>
             <Text style={styles.btn}>
               +
             </Text>
