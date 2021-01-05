@@ -3,19 +3,21 @@ import { View, StyleSheet, FlatList } from 'react-native'
 
 import api from './src/services/api'
 
+import Movie from './src/Movie'
+
 export class App extends Component {
   constructor(props) {
     super(props) 
 
       this.state = {
-        filmes: []
+        movies: []
       }
   }
 
   async componentDidMount() {
     const response = await api.get('/r-api/?api=filmes')
     this.setState({
-      filmes: response.data
+      movies: response.data
     })
   }
 
@@ -23,9 +25,9 @@ export class App extends Component {
     return (
       <View style={styles.container}>
         <FlatList 
-          data={this.state.filmes}
+          data={this.state.movies}
           keyExtractor={item => item.id.toString()}
-          renderItem={({item }) => <Filme data={item} /> }
+          renderItem={({item }) => <Movie data={item} /> }
 
         />
       </View>
