@@ -7,6 +7,8 @@ import {
   FlatList
 } from 'react-native'
 
+import List from './src/List'
+
 export class App extends Component {
   constructor(props) {
     super()
@@ -79,7 +81,11 @@ export class App extends Component {
           </TouchableOpacity>
 
         </View>
-                
+        <FlatList 
+          data={this.state.feed}
+          renderItem={({item}) => <List data={item} /> }
+        />
+
       </View>
     )
   }
