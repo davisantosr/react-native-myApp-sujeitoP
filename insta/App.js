@@ -83,6 +83,7 @@ export class App extends Component {
         </View>
         <FlatList 
           data={this.state.feed}
+          keyExtractor={(item) => item.id}
           renderItem={({item}) => <List data={item} /> }
         />
 
