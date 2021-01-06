@@ -5,6 +5,11 @@ import { useNavigation } from '@react-navigation/native'
 function About({route}) {
 
   const navigation = useNavigation()
+
+  navigation.setOptions({
+    title: `Sobre ${route.params?.name}`
+  })
+
   return (
     <View>
       <Text>Sobre</Text>
@@ -12,6 +17,11 @@ function About({route}) {
       <Button
         title={'Voltar para a Home'}
         onPress={() => navigation.goBack()}
+      />
+
+      <Button 
+        title={'Contact'}
+        onPress={() => navigation.navigate('Contact')}
       />
     </View>
   )
