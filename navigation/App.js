@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
-        <Drawer.Screen name={'Home'} component={Home} />
+        <Drawer.Screen name={'Home'} component={Home} options={{headerShown: true}} />
         <Drawer.Screen name={'About'} component={About} />
         <Drawer.Screen name={'Contact'} component={Contact} />
       </Drawer.Navigator>
