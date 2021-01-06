@@ -31,6 +31,13 @@ export default function App() {
             return <Icon name={name} color={color} size={size} />
           }
         })}
+        tabBarOptions={{
+          style:{
+            backgroundColor: '#121212'
+          },
+          activeTintColor: '#FFF',
+          inactiveTintColor: '#FF0000'
+        }}
       >
         <Tab.Screen name={'Home'} component={Home} />
         <Tab.Screen name={'About'} component={About} />
