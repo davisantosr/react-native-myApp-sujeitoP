@@ -7,7 +7,10 @@ function About() {
   const navigation = useNavigation()
 
   function goAbout() {
-    navigation.navigate('Sobre')
+    navigation.navigate('Sobre', {
+      name: 'Davi', 
+      email: 'davi-rocha2@email.com'
+    })
   }
   return (
     <View>
