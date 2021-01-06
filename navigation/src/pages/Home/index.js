@@ -1,26 +1,14 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text } from 'react-native'
 
-function About() {
-  
-  const navigation = useNavigation()
-
-  function goAbout() {
-    navigation.navigate('About', {
-      name: 'Davi', 
-      email: 'davi-rocha2@email.com'
-    })
-  }
+function Home() {
   return (
     <View>
-      <Text>Home</Text>
-      <Button
-        title='Go to About'
-        onPress={goAbout}
-      />
+      <Text>
+        Home
+      </Text>
     </View>
   )
 }
 
-export default About
+export default Home
