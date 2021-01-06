@@ -17,6 +17,11 @@ function Home() {
         title={'Contact'}
         onPress={() => navigation.navigate('Contact')}
       />
+
+      <Button 
+        title={'Toggle Drawer'}
+        onPress={() => navigation.toggleDrawer()}
+      />
     </View>
   )
 }
